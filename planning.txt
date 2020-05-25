@@ -1,0 +1,45 @@
+DESCRIPTION:
+  - Create a 2-Player math game where players take turns to answer simple math addition problems
+  - A new math question is generated for each turn by picking two numbers between 1 and 20
+  - The player whose turn it is is prompted the question and must answer correctly or lose a life
+
+TASK 1: EXTRACT NOUNS FOR CLASSES
+  - Game
+  - Player
+  - Turn
+  - Question
+
+TASK 2: WRITE THEIR ROLES AND METHODS
+  GAME:
+    - initialized with current player
+    - method that starts the game
+    - contains the game loop
+    - manages who the current player is
+    - method that ends the game when one of the players lives reaches 0
+    - calls ask_question method and decrease_lives method
+  PLAYER:
+    - initialized with player name and life count attributes
+    - keeps track of the player's life count
+    - method that decreases lives by 1 when a player gets a question wrong
+  QUESTION:
+    - initialized with numbers as nil
+    - method that randomly generates 2 numbers to be used in the question
+    - method that outputs the question to the interface
+    - reads player input and checks against answer
+
+CLASS ATTRIBUTES:
+  GAME: current_player
+  PLAYER: name, lives
+  QUESTION: num1, num2
+
+METHOD ORDER:
+  1. start game
+  2. create 2 player objects with 3 lives
+  3. set turn to be player 1
+  4. output question for player 1
+  5. if wrong answer, decrease player 1 lives by 1, else do nothing
+  6. output life count for both players
+  7. set turn to player 2
+  8. repeat 3 - 6 for player 2
+  9. if any players life count reaches 0, output that the opposing player has won with their life count
+  10. end game and exit
